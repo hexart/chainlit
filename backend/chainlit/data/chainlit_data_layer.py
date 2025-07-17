@@ -565,7 +565,7 @@ class ChainlitDataLayer(BaseDataLayer):
             INSERT INTO "Thread" ({", ".join(columns)})
             VALUES ({", ".join(placeholders)})
             ON CONFLICT (id) DO UPDATE
-            SET {", ".join(update_sets)};
+            SET {", ".join(update_sets)}
         """
 
         await self.execute_query(query, {str(i + 1): v for i, v in enumerate(values)})
